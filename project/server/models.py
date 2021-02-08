@@ -22,6 +22,10 @@ class User(db.Model):
         self.registered_on = datetime.datetime.now()
         self.admin = admin
 
+    # return the email column from User db
+    def getEmails():
+        return [i.email for i in db.session.query(User.email)]
+
     def encode_auth_token(self, user_id):
         """
         Generates the Auth Token
